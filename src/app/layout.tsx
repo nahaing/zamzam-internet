@@ -45,7 +45,7 @@ export default function RootLayout({
                 <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm">
                   <Link href="/packages" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Internet Packages</Link>
                   <Link href="/services" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Services</Link>
-                  <Link href="#" className="text-gray-600 font-medium hover:text-gray-900 flex items-center gap-1 transition-colors">Support <span className="text-[10px]">▼</span></Link>
+                  <Link href="/support" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Support</Link>
                   <Link href="#" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Coverage Areas</Link>
                   <Link href="/contact" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Contact</Link>
                 </nav>
@@ -55,7 +55,7 @@ export default function RootLayout({
               <div className="flex items-center gap-3 sm:gap-4">
                 <div className="hidden xl:flex gap-4 text-gray-500 mr-2 text-lg">
                   <button className="hover:text-[#f27423] transition-colors" title="Search">🔍</button>
-                  <Link href="/contact" className="hover:text-[#f27423] transition-colors" title="Contact Support">📞</Link>
+                  <Link href="/support" className="hover:text-[#f27423] transition-colors" title="Contact Support">📞</Link>
                   <button className="hover:text-[#f27423] transition-colors" title="Customer Portal">👤</button>
                 </div>
                 <Link href="/contact" className="bg-[#f27423] text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg hover:bg-[#d9651c] transition-colors shadow-sm">
@@ -99,18 +99,17 @@ export default function RootLayout({
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Blog</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Business</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Offers</Link></li>
-                  <li><Link href="/packages" className="hover:text-[#f27423] transition-colors font-semibold text-[#f27423]">Internet Packages</Link></li>
+                  <li><Link href="/packages" className="hover:text-[#f27423] transition-colors font-semibold">Internet Packages</Link></li>
                 </ul>
               </div>
               
               <div>
                 <h4 className="font-extrabold text-[#333] mb-4 text-sm sm:text-base">Support</h4>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm font-medium text-gray-500">
+                  <li><Link href="/support" className="hover:text-[#f27423] transition-colors font-semibold text-[#f27423]">Support Hub</Link></li>
                   <li><Link href="/contact" className="hover:text-[#f27423] transition-colors">Contact</Link></li>
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">Manuals</Link></li>
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">Hardware Charges</Link></li>
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">Payment Options</Link></li>
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">FAQs</Link></li>
+                  <li><Link href="/support" className="hover:text-[#f27423] transition-colors">Manuals</Link></li>
+                  <li><Link href="/support" className="hover:text-[#f27423] transition-colors">FAQs</Link></li>
                 </ul>
               </div>
               
