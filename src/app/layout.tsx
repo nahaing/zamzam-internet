@@ -44,7 +44,7 @@ export default function RootLayout({
                 </Link>
                 <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm">
                   <Link href="/" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Internet</Link>
-                  <Link href="#" className="text-gray-600 font-medium hover:text-gray-900 flex items-center gap-1 transition-colors">Services <span className="text-[10px]">▼</span></Link>
+                  <Link href="/services" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Services</Link>
                   <Link href="#" className="text-gray-600 font-medium hover:text-gray-900 flex items-center gap-1 transition-colors">Support <span className="text-[10px]">▼</span></Link>
                   <Link href="#" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Coverage Areas</Link>
                   <Link href="/contact" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Contact</Link>
