@@ -47,6 +47,7 @@ export default function RootLayout({
                   <Link href="/services" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Services</Link>
                   <Link href="/support" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Support</Link>
                   <Link href="/coverage" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Coverage Areas</Link>
+                  <Link href="/business" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Business</Link>
                   <Link href="/contact" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Contact</Link>
                 </nav>
               </div>
@@ -61,9 +62,9 @@ export default function RootLayout({
                 <Link href="/signup" className="bg-[#f27423] text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg hover:bg-[#d9651c] transition-colors shadow-sm">
                   Get connection
                 </Link>
-                <button className="hidden sm:block bg-transparent text-blue-600 border border-blue-600 font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-blue-50 transition-colors">
+                <Link href="/business" className="hidden sm:block bg-transparent text-blue-600 border border-blue-600 font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-blue-50 transition-colors">
                   Business
-                </button>
+                </Link>
                 <button className="lg:hidden text-gray-800 text-2xl ml-2 focus:outline-none">
                   ☰
                 </button>
@@ -97,7 +98,7 @@ export default function RootLayout({
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm font-medium text-gray-500">
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">About</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Blog</Link></li>
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">Business</Link></li>
+                  <li><Link href="/business" className="hover:text-[#f27423] font-semibold text-[#f27423] transition-colors">Business</Link></li>
                   <li><Link href="/coverage" className="hover:text-[#f27423] transition-colors">Coverage Areas</Link></li>
                   <li><Link href="/packages" className="hover:text-[#f27423] transition-colors">Internet Packages</Link></li>
                 </ul>
@@ -116,7 +117,7 @@ export default function RootLayout({
               <div>
                 <h4 className="font-extrabold text-[#333] mb-4 text-sm sm:text-base">My Zam Zam</h4>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm font-medium text-gray-500 mb-6 sm:mb-0">
-                  <li><Link href="/signup" className="hover:text-[#f27423] font-semibold text-[#f27423] transition-colors">Sign up</Link></li>
+                  <li><Link href="/signup" className="hover:text-[#f27423] transition-colors">Sign up</Link></li>
                   <li><Link href="/signup" className="hover:text-[#f27423] transition-colors">Log in</Link></li>
                 </ul>
               </div>
