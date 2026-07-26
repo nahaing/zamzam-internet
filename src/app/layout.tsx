@@ -99,7 +99,7 @@ export default function RootLayout({
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Blog</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Business</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Offers</Link></li>
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">Internet Packages</Link></li>
+                  <li><Link href="/packages" className="hover:text-[#f27423] transition-colors">Internet Packages</Link></li>
                 </ul>
               </div>
               
