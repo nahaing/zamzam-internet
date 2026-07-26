@@ -26,9 +26,9 @@ export default function RootLayout({
         {/* 1. Global Top Promotional Banner */}
         <div className="bg-[#f27423] text-white text-xs sm:text-sm py-2 px-4 text-center w-full z-50">
           <p className="flex justify-center items-center gap-1 sm:gap-2 flex-wrap">
-            <span>Join today with our easy, new signup process. <a href="#" className="underline font-bold">Sign up now.</a></span>
+            <span>Join today with our easy, new signup process. <Link href="/contact" className="underline font-bold">Sign up now.</Link></span>
             <span className="hidden lg:inline">|</span>
-            <span className="hidden sm:inline">Get a mega discount of 25% on 12 months advance payment. <a href="#" className="underline font-bold">Learn how.</a></span>
+            <span className="hidden sm:inline">Get a mega discount of 25% on 12 months advance payment. <Link href="/packages" className="underline font-bold">Learn how.</Link></span>
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export default function RootLayout({
                   ZAM<span className="text-[#f27423] font-light italic">zam</span>
                 </Link>
                 <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm">
-                  <Link href="/" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Internet</Link>
+                  <Link href="/packages" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Internet Packages</Link>
                   <Link href="/services" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Services</Link>
                   <Link href="#" className="text-gray-600 font-medium hover:text-gray-900 flex items-center gap-1 transition-colors">Support <span className="text-[10px]">▼</span></Link>
                   <Link href="#" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Coverage Areas</Link>
@@ -99,7 +99,7 @@ export default function RootLayout({
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Blog</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Business</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Offers</Link></li>
-                  <li><Link href="/packages" className="hover:text-[#f27423] transition-colors">Internet Packages</Link></li>
+                  <li><Link href="/packages" className="hover:text-[#f27423] transition-colors font-semibold text-[#f27423]">Internet Packages</Link></li>
                 </ul>
               </div>
               
