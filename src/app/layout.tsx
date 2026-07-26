@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
@@ -9,16 +11,16 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export const metadata: Metadata = {
-  title: "Zam Zam Internet",
-  description: "High Speed Fiber Internet Provider in Pakistan",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
   return (
     <html lang="en" className={poppins.variable}>
       <body className="font-poppins antialiased min-h-screen flex flex-col bg-white text-gray-900" suppressHydrationWarning>
@@ -39,7 +41,7 @@ export default function RootLayout({
               
               {/* Logo & Navigation Links */}
               <div className="flex items-center gap-8 xl:gap-12">
-                <Link href="/" className="text-2xl sm:text-3xl font-black tracking-tighter text-gray-800 cursor-pointer">
+                <Link href="/" onClick={closeMobileMenu} className="text-2xl sm:text-3xl font-black tracking-tighter text-gray-800 cursor-pointer">
                   ZAM<span className="text-[#f27423] font-light italic">zam</span>
                 </Link>
                 <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm">
@@ -48,11 +50,12 @@ export default function RootLayout({
                   <Link href="/support" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Support</Link>
                   <Link href="/coverage" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Coverage Areas</Link>
                   <Link href="/business" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Business</Link>
+                  <Link href="/about" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">About Us</Link>
                   <Link href="/contact" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Contact</Link>
                 </nav>
               </div>
               
-              {/* Right Utility Buttons & Mobile Menu */}
+              {/* Right Utility Buttons & Mobile Menu Trigger */}
               <div className="flex items-center gap-3 sm:gap-4">
                 <div className="hidden xl:flex gap-4 text-gray-500 mr-2 text-lg">
                   <button className="hover:text-[#f27423] transition-colors" title="Search">🔍</button>
@@ -65,14 +68,44 @@ export default function RootLayout({
                 <Link href="/business" className="hidden sm:block bg-transparent text-blue-600 border border-blue-600 font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-blue-50 transition-colors">
                   Business
                 </Link>
-                <button className="lg:hidden text-gray-800 text-2xl ml-2 focus:outline-none">
-                  ☰
+                
+                {/* Mobile Hamburger Button */}
+                <button
+                  onClick={toggleMobileMenu}
+                  className="lg:hidden text-gray-800 text-2xl ml-2 focus:outline-none p-1"
+                  aria-label="Toggle navigation menu"
+                >
+                  {mobileMenuOpen ? "✕" : "☰"}
                 </button>
               </div>
 
             </header>
           </div>
         </div>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden fixed inset-x-0 top-[110px] z-40 bg-white border-b border-gray-200 shadow-2xl p-6 flex flex-col gap-4 animate-in slide-in-from-top duration-200">
+            <nav className="flex flex-col gap-3 font-semibold text-gray-700 text-base">
+              <Link href="/packages" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Internet Packages</Link>
+              <Link href="/services" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Services</Link>
+              <Link href="/support" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Support</Link>
+              <Link href="/coverage" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Coverage Areas</Link>
+              <Link href="/business" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Business Solutions</Link>
+              <Link href="/about" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">About Us</Link>
+              <Link href="/contact" onClick={closeMobileMenu} className="py-2 hover:text-[#f27423]">Contact Support</Link>
+            </nav>
+            <div className="flex flex-col gap-2 pt-2">
+              <Link
+                href="/signup"
+                onClick={closeMobileMenu}
+                className="bg-[#f27423] text-white font-bold py-3 rounded-xl text-center text-sm shadow-md"
+              >
+                Get New Connection
+              </Link>
+            </div>
+          </div>
+        )}
 
         {/* 3. Page Content */}
         <div className="flex-1">
@@ -96,9 +129,8 @@ export default function RootLayout({
               <div>
                 <h4 className="font-extrabold text-[#333] mb-4 text-sm sm:text-base">Explore</h4>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm font-medium text-gray-500">
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">About</Link></li>
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">Blog</Link></li>
-                  <li><Link href="/business" className="hover:text-[#f27423] font-semibold text-[#f27423] transition-colors">Business</Link></li>
+                  <li><Link href="/about" className="hover:text-[#f27423] transition-colors">About Us</Link></li>
+                  <li><Link href="/business" className="hover:text-[#f27423] transition-colors">Business</Link></li>
                   <li><Link href="/coverage" className="hover:text-[#f27423] transition-colors">Coverage Areas</Link></li>
                   <li><Link href="/packages" className="hover:text-[#f27423] transition-colors">Internet Packages</Link></li>
                 </ul>
