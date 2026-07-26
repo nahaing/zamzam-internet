@@ -26,7 +26,7 @@ export default function RootLayout({
         {/* 1. Global Top Promotional Banner */}
         <div className="bg-[#f27423] text-white text-xs sm:text-sm py-2 px-4 text-center w-full z-50">
           <p className="flex justify-center items-center gap-1 sm:gap-2 flex-wrap">
-            <span>Join today with our easy, new signup process. <Link href="/contact" className="underline font-bold">Sign up now.</Link></span>
+            <span>Join today with our easy, new signup process. <Link href="/signup" className="underline font-bold">Sign up now.</Link></span>
             <span className="hidden lg:inline">|</span>
             <span className="hidden sm:inline">Get a mega discount of 25% on 12 months advance payment. <Link href="/packages" className="underline font-bold">Learn how.</Link></span>
           </p>
@@ -56,9 +56,9 @@ export default function RootLayout({
                 <div className="hidden xl:flex gap-4 text-gray-500 mr-2 text-lg">
                   <button className="hover:text-[#f27423] transition-colors" title="Search">🔍</button>
                   <Link href="/support" className="hover:text-[#f27423] transition-colors" title="Contact Support">📞</Link>
-                  <button className="hover:text-[#f27423] transition-colors" title="Customer Portal">👤</button>
+                  <Link href="/signup" className="hover:text-[#f27423] transition-colors" title="Customer Signup">👤</Link>
                 </div>
-                <Link href="/contact" className="bg-[#f27423] text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg hover:bg-[#d9651c] transition-colors shadow-sm">
+                <Link href="/signup" className="bg-[#f27423] text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg hover:bg-[#d9651c] transition-colors shadow-sm">
                   Get connection
                 </Link>
                 <button className="hidden sm:block bg-transparent text-blue-600 border border-blue-600 font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-blue-50 transition-colors">
@@ -98,7 +98,7 @@ export default function RootLayout({
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">About</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Blog</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Business</Link></li>
-                  <li><Link href="/coverage" className="hover:text-[#f27423] transition-colors font-semibold text-[#f27423]">Coverage Areas</Link></li>
+                  <li><Link href="/coverage" className="hover:text-[#f27423] transition-colors">Coverage Areas</Link></li>
                   <li><Link href="/packages" className="hover:text-[#f27423] transition-colors">Internet Packages</Link></li>
                 </ul>
               </div>
@@ -116,8 +116,8 @@ export default function RootLayout({
               <div>
                 <h4 className="font-extrabold text-[#333] mb-4 text-sm sm:text-base">My Zam Zam</h4>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm font-medium text-gray-500 mb-6 sm:mb-0">
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">Sign up</Link></li>
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">Log in</Link></li>
+                  <li><Link href="/signup" className="hover:text-[#f27423] font-semibold text-[#f27423] transition-colors">Sign up</Link></li>
+                  <li><Link href="/signup" className="hover:text-[#f27423] transition-colors">Log in</Link></li>
                 </ul>
               </div>
               
