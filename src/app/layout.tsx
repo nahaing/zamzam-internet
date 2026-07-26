@@ -46,7 +46,7 @@ export default function RootLayout({
                   <Link href="/packages" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Internet Packages</Link>
                   <Link href="/services" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Services</Link>
                   <Link href="/support" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Support</Link>
-                  <Link href="#" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Coverage Areas</Link>
+                  <Link href="/coverage" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Coverage Areas</Link>
                   <Link href="/contact" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Contact</Link>
                 </nav>
               </div>
@@ -98,15 +98,15 @@ export default function RootLayout({
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">About</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Blog</Link></li>
                   <li><Link href="#" className="hover:text-[#f27423] transition-colors">Business</Link></li>
-                  <li><Link href="#" className="hover:text-[#f27423] transition-colors">Offers</Link></li>
-                  <li><Link href="/packages" className="hover:text-[#f27423] transition-colors font-semibold">Internet Packages</Link></li>
+                  <li><Link href="/coverage" className="hover:text-[#f27423] transition-colors font-semibold text-[#f27423]">Coverage Areas</Link></li>
+                  <li><Link href="/packages" className="hover:text-[#f27423] transition-colors">Internet Packages</Link></li>
                 </ul>
               </div>
               
               <div>
                 <h4 className="font-extrabold text-[#333] mb-4 text-sm sm:text-base">Support</h4>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm font-medium text-gray-500">
-                  <li><Link href="/support" className="hover:text-[#f27423] transition-colors font-semibold text-[#f27423]">Support Hub</Link></li>
+                  <li><Link href="/support" className="hover:text-[#f27423] transition-colors">Support Hub</Link></li>
                   <li><Link href="/contact" className="hover:text-[#f27423] transition-colors">Contact</Link></li>
                   <li><Link href="/support" className="hover:text-[#f27423] transition-colors">Manuals</Link></li>
                   <li><Link href="/support" className="hover:text-[#f27423] transition-colors">FAQs</Link></li>
