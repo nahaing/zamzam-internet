@@ -17,9 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdown, setServicesDropdown] = useState(false);
+  const [supportDropdown, setSupportDropdown] = useState(false);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
-  const closeMobileMenu = () => setMobileMenuOpen(false);
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setServicesDropdown(false);
+    setSupportDropdown(false);
+  };
 
   return (
     <html lang="en" className={poppins.variable}>
@@ -37,42 +43,86 @@ export default function RootLayout({
         {/* 2. Global Main Navigation Header */}
         <div className="w-full flex justify-center items-center sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm py-3 border-b border-gray-100">
           <div className="flex max-w-7xl w-full px-4 md:px-8">
-            <header className="flex w-full items-center justify-between">
+            <header className="flex w-full items-center justify-between gap-4">
               
-              {/* Logo & Navigation Links */}
-              <div className="flex items-center gap-8 xl:gap-12">
-                <Link href="/" onClick={closeMobileMenu} className="text-2xl sm:text-3xl font-black tracking-tighter text-gray-800 cursor-pointer">
+              {/* Logo & Desktop Navigation */}
+              <div className="flex items-center gap-6 xl:gap-10">
+                <Link href="/" onClick={closeMobileMenu} className="text-2xl sm:text-3xl font-black tracking-tighter text-gray-800 cursor-pointer shrink-0">
                   ZAM<span className="text-[#f27423] font-light italic">zam</span>
                 </Link>
-                <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm">
-                  <Link href="/packages" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Internet Packages</Link>
-                  <Link href="/services" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Services</Link>
-                  <Link href="/support" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Support</Link>
-                  <Link href="/coverage" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Coverage Areas</Link>
-                  <Link href="/business" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Business</Link>
-                  <Link href="/about" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">About Us</Link>
-                  <Link href="/contact" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">Contact</Link>
+                
+                <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-sm">
+                  {/* Internet Packages Link */}
+                  <Link href="/packages" className="text-gray-600 font-medium hover:text-gray-900 transition-colors whitespace-nowrap">
+                    Internet
+                  </Link>
+
+                  {/* Services Dropdown */}
+                  <div 
+                    className="relative group"
+                    onMouseEnter={() => setServicesDropdown(true)}
+                    onMouseLeave={() => setServicesDropdown(false)}
+                  >
+                    <button className="text-gray-600 font-medium hover:text-gray-900 flex items-center gap-1 transition-colors py-2 whitespace-nowrap">
+                      Services <span className="text-[10px]">▼</span>
+                    </button>
+                    {servicesDropdown && (
+                      <div className="absolute top-full left-0 w-48 bg-white border border-gray-100 rounded-xl shadow-xl py-2 flex flex-col z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                        <Link href="/services" onClick={closeMobileMenu} className="px-4 py-2 hover:bg-gray-50 text-gray-700 text-sm font-medium">Value Added Services</Link>
+                        <Link href="/business" onClick={closeMobileMenu} className="px-4 py-2 hover:bg-gray-50 text-gray-700 text-sm font-medium">Business Solutions</Link>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Support Dropdown */}
+                  <div 
+                    className="relative group"
+                    onMouseEnter={() => setSupportDropdown(true)}
+                    onMouseLeave={() => setSupportDropdown(false)}
+                  >
+                    <button className="text-gray-600 font-medium hover:text-gray-900 flex items-center gap-1 transition-colors py-2 whitespace-nowrap">
+                      Support <span className="text-[10px]">▼</span>
+                    </button>
+                    {supportDropdown && (
+                      <div className="absolute top-full left-0 w-44 bg-white border border-gray-100 rounded-xl shadow-xl py-2 flex flex-col z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                        <Link href="/support" onClick={closeMobileMenu} className="px-4 py-2 hover:bg-gray-50 text-gray-700 text-sm font-medium">Support Center</Link>
+                        <Link href="/contact" onClick={closeMobileMenu} className="px-4 py-2 hover:bg-gray-50 text-gray-700 text-sm font-medium">Contact Us</Link>
+                        <Link href="/about" onClick={closeMobileMenu} className="px-4 py-2 hover:bg-gray-50 text-gray-700 text-sm font-medium">About Us</Link>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Coverage Areas */}
+                  <Link href="/coverage" className="text-gray-600 font-medium hover:text-gray-900 transition-colors whitespace-nowrap">
+                    Coverage Areas
+                  </Link>
+
+                  {/* Contact Direct */}
+                  <Link href="/contact" className="text-gray-600 font-medium hover:text-gray-900 transition-colors whitespace-nowrap">
+                    Contact
+                  </Link>
                 </nav>
               </div>
               
-              {/* Right Utility Buttons & Mobile Menu Trigger */}
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="hidden xl:flex gap-4 text-gray-500 mr-2 text-lg">
-                  <button className="hover:text-[#f27423] transition-colors" title="Search">🔍</button>
-                  <Link href="/support" className="hover:text-[#f27423] transition-colors" title="Contact Support">📞</Link>
-                  <Link href="/signup" className="hover:text-[#f27423] transition-colors" title="Customer Signup">👤</Link>
+              {/* Right Utility Buttons */}
+              <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+                <div className="hidden xl:flex items-center gap-3 text-gray-500 text-lg mr-1">
+                  <button className="hover:text-[#f27423] transition-colors p-1" title="Search">🔍</button>
+                  <Link href="/support" className="hover:text-[#f27423] transition-colors p-1" title="Contact Support">📞</Link>
+                  <Link href="/signup" className="hover:text-[#f27423] transition-colors p-1" title="Customer Signup">👤</Link>
                 </div>
-                <Link href="/signup" className="bg-[#f27423] text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg hover:bg-[#d9651c] transition-colors shadow-sm">
+                
+                <Link href="/signup" className="bg-[#f27423] text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg hover:bg-[#d9651c] transition-colors shadow-sm whitespace-nowrap">
                   Get connection
                 </Link>
-                <Link href="/business" className="hidden sm:block bg-transparent text-blue-600 border border-blue-600 font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-blue-50 transition-colors">
+                <Link href="/business" className="hidden sm:block bg-transparent text-blue-600 border border-blue-600 font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-blue-50 transition-colors whitespace-nowrap">
                   Business
                 </Link>
                 
                 {/* Mobile Hamburger Button */}
                 <button
                   onClick={toggleMobileMenu}
-                  className="lg:hidden text-gray-800 text-2xl ml-2 focus:outline-none p-1"
+                  className="lg:hidden text-gray-800 text-2xl ml-1 focus:outline-none p-1"
                   aria-label="Toggle navigation menu"
                 >
                   {mobileMenuOpen ? "✕" : "☰"}
@@ -88,12 +138,12 @@ export default function RootLayout({
           <div className="lg:hidden fixed inset-x-0 top-[110px] z-40 bg-white border-b border-gray-200 shadow-2xl p-6 flex flex-col gap-4 animate-in slide-in-from-top duration-200">
             <nav className="flex flex-col gap-3 font-semibold text-gray-700 text-base">
               <Link href="/packages" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Internet Packages</Link>
-              <Link href="/services" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Services</Link>
-              <Link href="/support" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Support</Link>
+              <Link href="/services" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Value Added Services</Link>
+              <Link href="/support" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Support Center</Link>
               <Link href="/coverage" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Coverage Areas</Link>
               <Link href="/business" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">Business Solutions</Link>
               <Link href="/about" onClick={closeMobileMenu} className="py-2 border-b border-gray-100 hover:text-[#f27423]">About Us</Link>
-              <Link href="/contact" onClick={closeMobileMenu} className="py-2 hover:text-[#f27423]">Contact Support</Link>
+              <Link href="/contact" onClick={closeMobileMenu} className="py-2 hover:text-[#f27423]">Contact Us</Link>
             </nav>
             <div className="flex flex-col gap-2 pt-2">
               <Link
