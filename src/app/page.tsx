@@ -9,7 +9,7 @@ export default function Home() {
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-[#333] leading-[1.1] mb-4 w-full">
               Your trusted <br/>
               <span className="text-[#5978f3]">Internet</span> <br/>
-              provider in Pakistan
+              provider in Faisalabad, Pakistan
             </h1>
             <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-md mx-auto lg:mx-0 font-medium">
               Explore premium fiber internet, phone, and cable TV packages and get connected today! Enjoy fast, reliable internet, crystal-clear voice services, entertainment, and more.
